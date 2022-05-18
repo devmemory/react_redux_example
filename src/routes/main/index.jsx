@@ -1,42 +1,25 @@
-import Dialog from 'components/dialog'
 import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { decrement, increment, setValue } from 'slices/counter'
-import { open } from 'slices/dialog'
+import { useNavigate } from 'react-router-dom'
+import styles from './index.module.css'
 
 function MainIndex() {
-    const count = useSelector((state) => state.counter.value)
-    const showDialog = useSelector((state) => state.dialog.value)
-    const dispatch = useDispatch()
+    const navigate = useNavigate()
+
+    const pages = [
+        { title: 'counter', link: '/counter' }
+    ]
 
     return (
-        <div style={style}>
-            <div>
-                <p>{count}</p>
-                <button
-                    aria-label="Increment value"
-                    onClick={() => dispatch(increment())}
-                >
-                    +
-                </button>
-                <button
-                    aria-label="Decrement value"
-                    onClick={() => dispatch(decrement())}
-                >
-                    -
-                </button>
-                <button
-                    aria-label="Set value"
-                    onClick={() => dispatch(open())}
-                >
-                    값 설정
-                </button>
-                {showDialog ? <Dialog setValue={(value) => dispatch(setValue(value))} /> : <></>}
-            </div>
-        </div>
+        <main className={styles.main}>
+            {pages.map((e, _) => {
+                return (
+                    <div key={`div-${e.title}`} onClick={() => navigate(e.link)}>
+                        {e.title}
+                    </div>
+                )
+            })}
+        </main>
     )
 }
-
-const style = { height: '100vh', width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', textAlign: 'center' }
 
 export default MainIndex
