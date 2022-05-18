@@ -1,12 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit"
-import counterReducer from "slices/counter"
-import dialogReducer from "slices/dialog"
-import toastReducer from "slices/toast"
+import counter from "slices/counter"
+import dialog from "slices/dialog"
+import toast from "slices/toast"
 
 export default configureStore({
     reducer: {
-        counter: counterReducer,
-        dialog: dialogReducer,
-        toast: toastReducer
+        counter,
+        dialog,
+        toast
     }
 })
