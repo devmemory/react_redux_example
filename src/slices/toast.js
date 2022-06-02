@@ -7,7 +7,6 @@ const toastSlice = createSlice({
         show: (state, action) => {
             if (state.show) {
                 state.show = false
-                state.message = ''
             }
 
             state.show = true

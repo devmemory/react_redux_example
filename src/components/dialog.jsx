@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
 import styles from 'components/dialog.module.css'
+import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { close } from 'slices/dialog'
 import { showToast } from './toast'

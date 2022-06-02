@@ -5,8 +5,12 @@ import { decrement, increment, setValue } from 'slices/counter'
 import { open } from 'slices/dialog'
 
 function CounterIndex() {
-    const count = useSelector((state) => state.counter.value)
-    const showDialog = useSelector((state) => state.dialog.value)
+    const { count, showDialog } = useSelector((state) => {
+        return {
+            count: state.counter.value,
+            showDialog: state.dialog.value
+        }
+    })
     const dispatch = useDispatch()
 
     return (
