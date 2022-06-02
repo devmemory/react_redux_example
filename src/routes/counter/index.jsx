@@ -1,4 +1,5 @@
 import Dialog from 'components/dialog'
+import AsyncTest from 'components/async_test'
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { decrement, increment, setValue } from 'slices/counter'
@@ -36,6 +37,8 @@ function CounterIndex() {
                     값 설정
                 </button>
                 {showDialog ? <Dialog setValue={(value) => dispatch(setValue(value))} /> : <></>}
+
+                <AsyncTest />
             </div>
         </div>
     )
